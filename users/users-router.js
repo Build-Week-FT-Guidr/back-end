@@ -4,9 +4,11 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const secrets = require('../secrets');
 
+const authenticated = require('./authenticate-middleware');
+
 const Users = require('./users-model');
 
-router.get('/', (req, res) => {
+router.get('/', authenticated, (req, res) => {
     Users
     .find()
     .then(users=>{
@@ -124,7 +126,7 @@ router.get('/', (req, res) => {
   function generateToken(user) {
     const payload ={
       username: user.username,
-  
+      id: user.id //
     };
   
     const options ={
