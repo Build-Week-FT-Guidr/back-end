@@ -16,6 +16,43 @@ router.get('/', (req, res) => {
       res.status(500).json({ message: 'Failed to get users.'})
     })
   });
+
+  router.get('/:id', (req, res)=>{
+    const { id } = req.params;
+    Users
+    .findById(id)
+    .then(user=>{
+      res.status(200).json(user);
+    })
+    .catch(err=>{
+      res.status(500).json({ message: 'Failed to get user.'})
+      
+    })
+  })
+
+  router.get('/:id/trips', (req, res) => {
+    const { id } = req.params;
+    Users
+    .getUserTrips(id)
+    .then(trips =>{
+      res.status(200).json(trips)
+    })
+    .catch(err=>{
+      res.status(500).json({ message: 'Failed to get user trips.'})
+    })
+  })
+
+  router.get('/:id/profile', (req, res) => {
+    const { id } = req.params;
+    Users
+    .getUserProfile(id)
+    .then(profile =>{
+      res.status(200).json(profile)
+    })
+    .catch(err=>{
+      res.status(500).json({ message: 'Failed to get user profile.'})
+    })
+  })
   
   router.post('/register', (req, res) => {
     // implement registration
