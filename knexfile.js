@@ -2,11 +2,12 @@
 
 module.exports = {
   development: {
-    client: 'sqlite3',
-    connection: {
-      filename: './data/guidrBuild.db3'
+    "client": "sqlite3",
+    "connection": {
+      "filename": "content/data/ghost-test.db"
     },
-    useNullAsDefault: true,
+    "useNullAsDefault": true,
+    "debug": true
   },
 
   // staging: {
@@ -26,10 +27,11 @@ module.exports = {
   // },
 
   production: {
-    client: 'sqlite3',
-    connection: {
-      filename: './data/guidrBuild.db3'
+    "client": "sqlite3",
+    "connection": {
+      "filename": "content/data/ghost-test.db"
     },
-    useNullAsDefault: true,
+    "useNullAsDefault": true,
+    "debug": true
   },
 };
