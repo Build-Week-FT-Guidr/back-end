@@ -7,12 +7,6 @@ module.exports = {
       filename: './data/guidrBuild.db3'
     },
     useNullAsDefault: true,
-    migrations: {
-      directory: './migrations' 
-    },
-    seeds: {
-      directory: './seeds'
-    }
   },
 
   // staging: {
@@ -37,11 +31,5 @@ module.exports = {
       filename: './data/guidrBuild.db3'
     },
     useNullAsDefault: true,
-    migrations: {
-      directory: './migrations' 
-    },
-    seeds: {
-      directory: './seeds'
-    }
   },
 };
