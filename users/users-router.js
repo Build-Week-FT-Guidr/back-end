@@ -7,7 +7,14 @@ const secrets = require('../secrets');
 const Users = require('./users-model');
 
 router.get('/', (req, res) => {
-    res.send('Hi Everyone!')
+    Users
+    .find()
+    .then(users=>{
+      res.status(200).json(users);
+    })
+    .catch(err=>{
+      res.status(500).json({ message: 'Failed to get users.'})
+    })
   });
   
   router.post('/register', (req, res) => {
