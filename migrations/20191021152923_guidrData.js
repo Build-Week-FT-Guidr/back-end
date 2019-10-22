@@ -4,6 +4,8 @@ exports.up = function(knex) {
   .createTable('users', tbl=>{
     tbl.increments();
 
+    tbl.string('name', 255);
+
     tbl.string('username', 128)
     .notNullable()
     .unique();

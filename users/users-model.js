@@ -6,7 +6,9 @@ module.exports = {
     findBy,
     findById,
     getUserTrips,
-    getUserProfile
+    getUserProfile,
+    addUserTrip,
+    addUserProfile
   };
 
   function find() {
@@ -38,5 +40,17 @@ module.exports = {
   function getUserProfile(userId) {
     return db('profiles')
     .join('users', 'users.id', '=', 'profiles.user_id')
+    .where({ user_id : userId })
+}
+
+  function addUserTrip(trip, userId) {
+      return db('trips')
+      .insert(trip)
+      .where({ user_id : userId })
+  }
+
+  function addUserProfile(profile, userId) {
+    return db('profiles')
+    .insert(profile)
     .where({ user_id : userId })
 }

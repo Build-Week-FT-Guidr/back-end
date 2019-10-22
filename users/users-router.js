@@ -54,6 +54,35 @@ router.get('/', (req, res) => {
     })
   })
   
+  router.post('/:id/trips', (req, res) => {
+    const  id  = req.params.id;
+    const tripData = req.body;
+    tripData.user_id = req.params.id;
+    console.log('tripId', tripData.user_id)
+  
+    Users.addUserTrip(tripData, tripData.user_id)
+    .then(trip => {
+      res.status(201).json(trip);
+    })
+    .catch (err => {
+      res.status(500).json({ message: 'Failed to create new trip' });
+    });
+  });
+
+  router.post('/:id/profile', (req, res) => {
+    const  id  = req.params.id;
+    const profileData = req.body;
+    profileData.user_id = req.params.id;
+  
+    Users.addUserProfile(profileData, profileData.user_id)
+    .then(profile => {
+      res.status(201).json(profile);
+    })
+    .catch (err => {
+      res.status(500).json({ message: 'Failed to create new profile' });
+    });
+  });
+
   router.post('/register', (req, res) => {
     // implement registration
     let user = req.body;
