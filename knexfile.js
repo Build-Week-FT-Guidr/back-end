@@ -27,11 +27,9 @@ module.exports = {
   // },
 
   production: {
-    client: 'pg',
+    client: 'sqlite3',
     connection: {
-      database: 'my_db',
-      user:     'postgres',
-      password: 'postgres',
+      filename: './data/guidrBuild.db3',
       userNullAsDefault: true,
     },
     pool: {
