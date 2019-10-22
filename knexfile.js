@@ -32,7 +32,7 @@ module.exports = {
       database: 'my_db',
       user:     'postgres',
       password: 'postgres',
-      userNullAsDefault: true,
+      useNullAsDefault: true,
     },
     pool: {
       min: 2,
