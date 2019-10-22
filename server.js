@@ -17,5 +17,8 @@ server.use('/users', usersRouter);
 server.use('/trips',  tripsRouter);
 server.use('/profiles', profilesRouter);
 
+server.get('/', (req, res) => {
+    res.status(200).json({ api: 'Server Running' });
+});
 
 module.exports = server;
