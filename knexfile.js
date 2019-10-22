@@ -1,13 +1,18 @@
 // Update with your config settings.
 
 module.exports = {
-
   development: {
     client: 'sqlite3',
     connection: {
-      filename: './data/guidrBuild.db3',
+      filename: './data/guidrBuild.db3'
     },
     useNullAsDefault: true,
+    migrations: {
+      directory: './migrations' 
+    },
+    seeds: {
+      directory: './seeds'
+    }
   },
 
   // staging: {
@@ -29,8 +34,14 @@ module.exports = {
   production: {
     client: 'sqlite3',
     connection: {
-      filename: './data/guidrBuild.db3',
+      filename: './data/guidrBuild.db3'
     },
     useNullAsDefault: true,
+    migrations: {
+      directory: './migrations' 
+    },
+    seeds: {
+      directory: './seeds'
+    }
   },
 };
