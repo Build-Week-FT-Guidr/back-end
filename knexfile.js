@@ -4,7 +4,7 @@ module.exports = {
   development: {
     "client": "sqlite3",
     "connection": {
-      "filename": "content/data/ghost-test.db"
+      "filename": "./data/guidrBuild.db3"
     },
     "useNullAsDefault": true,
     "debug": true
@@ -29,7 +29,7 @@ module.exports = {
   production: {
     "client": "sqlite3",
     "connection": {
-      "filename": "content/data/ghost-test.db"
+      "filename": "./data/guidrBuild.db3"
     },
     "useNullAsDefault": true,
     "debug": true
