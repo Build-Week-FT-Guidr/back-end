@@ -21,7 +21,7 @@ module.exports = {
   
   async function add(user) {
     const [id] = await db('users').insert(user);
-    console.log('!!!!!!!!!!!!!!', id)
+    console.log('CONFIRM !!!!!!!!!!!!!!', id)
     return findById(id);
   }
   
