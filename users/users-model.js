@@ -26,6 +26,8 @@ module.exports = {
   }
   
   function findById(id) {
+     console.log("FIND BY ID:", id)
+      
     return db('users')
       .where({ id })
       .first();
