@@ -90,12 +90,13 @@ router.get('/', authenticated, (req, res) => {
     let user = req.body;
     const hash = bcrypt.hashSync(user.password, 10); 
     user.password = hash;
-  
+
     Users.add(user)
       .then(saved => {
-        res.status(201).json(saved);
+        Users.find().then(result => res.status(201).json(result.filter(item => item.username === user.username)[0]));
       })
       .catch(error => {
+        console.log("err", error);
         res.status(500).json(error);
       });
   });

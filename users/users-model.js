@@ -20,13 +20,18 @@ module.exports = {
   }
   
   async function add(user) {
-    console.log('!!!!!!!!!!!!!!', user)
-    const [id] = await db('users').insert(user);
-  
-    return findById(id);
+    const id = await db('users').insert(user);
+
+    if(typeof id === "number") {
+      return findById(id);
+    } else {
+        return "Id not number"
+    }
   }
   
   function findById(id) {
+     console.log("FIND BY ID:", id)
+      
     return db('users')
       .where({ id })
       .first();
