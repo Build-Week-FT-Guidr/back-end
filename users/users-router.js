@@ -97,7 +97,7 @@ router.get('/', authenticated, (req, res) => {
         res.status(201).json(saved);
       })
       .catch(error => {
-        
+        console.log("err", err);
         res.status(500).json(error);
       });
   });
