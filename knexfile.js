@@ -2,12 +2,12 @@
 
 module.exports = {
   development: {
-    "client": "sqlite3",
-    "connection": {
-      "filename": "./data/guidrBuild.db3"
+    client: "sqlite3",
+    connection: {
+      filename: "./data/guidrBuild.db3"
     },
-    "useNullAsDefault": true,
-    "debug": true
+    useNullAsDefault: true,
+    debug: true
   },
 
   // staging: {
@@ -27,11 +27,14 @@ module.exports = {
   // },
 
   production: {
-    "client": "sqlite3",
-    "connection": {
-      "filename": "./data/guidrBuild.db3"
+    client: 'pg',
+    connection: process.env.DATABASE_URL,
+    useNullAsDefault: true,
+    migrations: {
+      directory: './data/migrations',
     },
-    "useNullAsDefault": true,
-    "debug": true
+    seeds: {
+      directory: './data/seeds'
+    },
   },
 };
