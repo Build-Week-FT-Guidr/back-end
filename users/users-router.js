@@ -94,7 +94,7 @@ router.get('/', authenticated, (req, res) => {
     Users.add(user)
       .then(saved => {
         console.log('SAVED!!!!:',saved);
-        res.status(201).json(saved);
+        Users.find().then(result => res.status(201).json(result.filter(item => item.username === user.username));
       })
       .catch(error => {
         console.log("err", error);
