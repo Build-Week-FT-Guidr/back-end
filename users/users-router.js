@@ -90,10 +90,10 @@ router.get('/', authenticated, (req, res) => {
     let user = req.body;
     const hash = bcrypt.hashSync(user.password, 10); 
     user.password = hash;
-    console.log(user);
+    console.log('USER!!!!:', user);
     Users.add(user)
       .then(saved => {
-        console.log(saved);
+        console.log('SAVED!!!!:',saved);
         res.status(201).json(saved);
       })
       .catch(error => {
