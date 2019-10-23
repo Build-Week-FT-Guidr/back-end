@@ -20,9 +20,8 @@ module.exports = {
   }
   
   async function add(user) {
-    console.log('!!!!!!!!!!!!!!', user)
     const [id] = await db('users').insert(user);
-  
+    console.log('!!!!!!!!!!!!!!', id)
     return findById(id);
   }
   
