@@ -22,9 +22,9 @@ module.exports = {
   async function add(user) {
     console.log(user);
     const id = await db('users').insert(user);
-    console.log('CONFIRM !!!!!!!!!!!!!!', id.result)
-    console.log('CONFIRM !!!!!!!!!!!!!!', id.body)
-    console.log('CONFIRM !!!!!!!!!!!!!!', id.data)
+    console.log('CONFIRM !!!!!!!!!!!!!!', typeof id)
+    console.dir('CONFIRM !!!!!!!!!!!!!!', id)
+    console.log('CONFIRM !!!!!!!!!!!!!!', id.command)
     if(typeof id === "number") {
       return findById(id);
     } else {
