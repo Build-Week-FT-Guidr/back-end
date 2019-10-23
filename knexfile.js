@@ -1,42 +1,31 @@
+// Update with your config settings.
+
 module.exports = {
   development: {
-    client: 'sqlite3',
-    connection: { filename: './data/newGuidr.db3' },
-    useNullAsDefault: true,
-    migrations: {
-      directory: './data/migrations',
-      tableName: 'dbmigrations',
+    client: "sqlite3",
+    connection: {
+      filename: "./data/newGuidr.db3"
     },
-    seeds: { directory: './data/seeds' },
+    useNullAsDefault: true,
+    debug: true,
+    migrations: {
+      directory: './migrations',
+    },
+    seeds: {
+      directory: './seeds'
+    },
   },
-  // testing: {
-  //   client: 'sqlite3',
-  //   connection: {
-  //     filename: './data/test.db3',
-  //   },
-  //   useNullAsDefault: true,
-  //   migrations: {
-  //     directory: './data/migrations',
-  //   },
-  //   seeds: {
-  //     directory: './data/seeds',
-  //   },
-  // },
+
+
   production: {
     client: 'pg',
-    connection: {
-      filename: 'data/newGuidr.db3'
-    },
+    connection: process.env.DATABASE_URL,
+    useNullAsDefault: true,
     migrations: {
-      directory: './data/migrations',
-      tableName: 'dbmigrations',
+      directory: './migrations',
     },
-    seeds: { directory: './data/seeds' },
-    pool: {
-      afterCreate: (conn, done) => {
-        // runs after a connection is made to the sqlite engine
-        conn.run('PRAGMA foreign_keys = ON', done); // turn on FK enforcement
-      },
+    seeds: {
+      directory: './seeds'
     },
   },
-  };
+};
