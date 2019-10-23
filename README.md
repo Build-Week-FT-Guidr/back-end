@@ -114,3 +114,5 @@ Data structure:
 Deletes a profile based on the profile id number:
 DELETE /profiles/:id 
 No Body Required
+
+Will's change to push
